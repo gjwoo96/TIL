@@ -15,16 +15,17 @@ import java.util.List;
 public class UserController {
 
     private final List<User> users = new ArrayList<>();
+
     @PostMapping("/user") // POST / user
-    public void saveUser(@RequestBody UserCreateRequest request){
+    public void saveUser(@RequestBody UserCreateRequest request) {
         users.add(new User(request.getName(), request.getAge()));
     }
 
     @GetMapping("/user")
-    public List<UserResponse> getUsers(){
+    public List<UserResponse> getUsers() {
         List<UserResponse> responses = new ArrayList<>();
-        for(int i = 0; i < users.size(); i++){
-            responses.add(new UserResponse(i +1, users.get(i)));
+        for (int i = 0; i < users.size(); i++) {
+            responses.add(new UserResponse(i + 1, users.get(i)));
         }
 
         return responses;

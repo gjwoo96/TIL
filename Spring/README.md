@@ -45,3 +45,7 @@ chmod -R u+rw Spring/library-app/.gradle
 git config --global core.autocrlf true
 
 ```
+
+## 3. 인텔리제이 DB 쿼리 실행 에러
+- 원인 및 해결방법
+> 명령어를 실행시킬때 해당명령어를 마우스로 드래그하고 Ctrl + enter로 실행
