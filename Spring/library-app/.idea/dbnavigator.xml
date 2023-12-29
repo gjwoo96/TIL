@@ -38,16 +38,23 @@ select * from fruit where name = '사과';
 insert into fruit (name,price,stocked_date)
 values('사과',1000,'2023-01-01');
 
-update fruit set price = 1500 where name = '사과';]]></console>
+update fruit set price = 1500 where name = '사과';
+
+create table user(
+    id bigint auto_increment,
+    name varchar(25),
+    age int,
+    primary key (id)
+);
+
+select * from user;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseEditorStateManager">
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="ace06d6f-19da-4c71-b900-b43091623eec" object-ref="consoles/Connection" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="ace06d6f-19da-4c71-b900-b43091623eec" />

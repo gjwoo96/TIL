@@ -49,3 +49,10 @@ git config --global core.autocrlf true
 ## 3. 인텔리제이 DB 쿼리 실행 에러
 - 원인 및 해결방법
 > 명령어를 실행시킬때 해당명령어를 마우스로 드래그하고 Ctrl + enter로 실행
+
+
+## 4. JdbcTemplate null 에러
+- 원인
+> JdbcTemplate을 빈으로 등록하지않아 생긴 문제이다.
+- 해결방법
+>@Autowired 선언해줌
