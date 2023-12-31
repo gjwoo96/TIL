@@ -32,7 +32,7 @@ public class UserCtrl {
         return jdbcTemplate.query(selectSql,(rs,rowNum) ->{
             long id = rs.getLong("id");
             String name = rs.getString("name");
-            int age = rs.getInt("age");
+            int age = rs.getInt("age"); 
             return new UserInfoRequest(id,name,age);
         });
     }

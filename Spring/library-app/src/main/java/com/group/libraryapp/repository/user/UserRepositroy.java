@@ -49,7 +49,7 @@ public class UserRepositroy {
 
     public void updateUserName(String name,long id){
         String sql = "UPDATE user SET name = ? WHERE id = ?";
-        //jdbcTemplate.update()는 데이터에 변경이 이뤄질때 사용하기때문에
+        //jdbcTemplate.update()는 데이터에 변경이 이뤄질때 사용하기 때문에
         // Insert,Update,Delete시 사용가능하다.
         jdbcTemplate.update(sql,name,id);
     }
