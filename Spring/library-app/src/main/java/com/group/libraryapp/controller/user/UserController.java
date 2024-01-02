@@ -14,9 +14,9 @@ public class UserController {
 
     private final UserService userService;
 
-    //jdbc 템플릿을 스프링이 알아서 넣어줌
-    public UserController(JdbcTemplate jdbcTemplate){
-        this.userService = new UserService(jdbcTemplate);
+
+    public UserController(UserService userService){
+        this.userService = userService;
     }
 
     @PostMapping("/user") // POST / user
