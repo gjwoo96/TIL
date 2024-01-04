@@ -9,11 +9,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserService {
 
-    @Autowired
-    @Qualifier("UserRepository")
     private final AllRepositroy allRepositroy;
 
-    public UserService(@Qualifier("UserRepository")AllRepositroy allRepositroy) {
+    public UserService(@Qualifier("AR")AllRepositroy allRepositroy) {
         this.allRepositroy = allRepositroy;
     }
     public String GetAllUser(){

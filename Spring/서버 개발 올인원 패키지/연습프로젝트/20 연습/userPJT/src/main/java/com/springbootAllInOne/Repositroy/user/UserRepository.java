@@ -5,7 +5,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
-@Repository("UserRepository")
+@Repository
+@Qualifier("UR")
 public class UserRepository implements AllRepositroy{
     @Override
     public String GetAllUser() {
