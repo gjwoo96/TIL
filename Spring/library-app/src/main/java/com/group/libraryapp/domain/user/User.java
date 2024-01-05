@@ -1,7 +1,6 @@
 package com.group.libraryapp.domain.user;
 
 import javax.persistence.*;
-
 @Entity // 스프링이 User 객체와 user 테이블을 같은것을 바라본다.
 public class User {
     @Id //id 필드라는것 명시
@@ -29,4 +28,13 @@ public class User {
     public Integer getAge() {
         return age;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void updateName(String name){
+        this.name = name;
+    }
+
 }

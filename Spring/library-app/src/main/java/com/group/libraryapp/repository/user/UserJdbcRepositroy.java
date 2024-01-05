@@ -7,14 +7,14 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class UserRepositroy {
+public class UserJdbcRepositroy {
 
     //자바 데이터베이스 커넥터
     private final JdbcTemplate jdbcTemplate;
 
     // jdbc 템플릿을 스프링이 알아서 넣어줌(JdbcTemplate은 의존성 설정으로 자동 빈 설정이 되어있고,
     // UserRepositroy또한 빈으로 등록되어 jdbcTemplate의 의존을받을수있다.)
-    public UserRepositroy(JdbcTemplate jdbcTemplate){
+    public UserJdbcRepositroy(JdbcTemplate jdbcTemplate){
         this.jdbcTemplate = jdbcTemplate;
     }
 

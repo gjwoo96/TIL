@@ -3,8 +3,7 @@ package com.group.libraryapp.controller.user;
 import com.group.libraryapp.dto.user.request.UserCreateRequest;
 import com.group.libraryapp.dto.user.request.UserUpdateReuqest;
 import com.group.libraryapp.dto.user.response.UserResponse;
-import com.group.libraryapp.service.user.UserService;
-import org.springframework.jdbc.core.JdbcTemplate;
+import com.group.libraryapp.service.user.UserServiceV1;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,32 +11,32 @@ import java.util.List;
 @RestController
 public class UserController {
 
-    private final UserService userService;
+    private final UserServiceV1 userServiceV1;
 
 
-    public UserController(UserService userService){
-        this.userService = userService;
+    public UserController(UserServiceV1 userServiceV1){
+        this.userServiceV1 = userServiceV1;
     }
 
     @PostMapping("/user") // POST / user
     public void saveUser(@RequestBody UserCreateRequest request) {
-        userService.saveUser(request);
+        userServiceV1.saveUser(request);
     }
 
     @GetMapping("/user")
     public List<UserResponse> getUsers() {
-        return userService.getUser();
+        return userServiceV1.getUser();
     }
 
     @PutMapping("/user")
     public void updateUsers(@RequestBody UserUpdateReuqest request){
         //Controller부분에는 HTTP Body에서 값을 받는역할
-        userService.updateUser(request);
+        userServiceV1.updateUser(request);
     }
 
     @DeleteMapping("user")
     public void deleteUser(@RequestParam String name){
-        userService.deleteUser(name);
+        userServiceV1.deleteUser(name);
     }
 
 }
