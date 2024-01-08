@@ -41,4 +41,13 @@ public class UserServiceV2 {
         userRepository.save(user);
     }
 
+    public void deleteUser(String name){
+        // 이름을 조건으로 조회방법
+        // SELECT * FROM user WHERE name = ?
+        User user= userRepository.findByName(name)
+                .orElseThrow(IllegalArgumentException::new);
+       
+        userRepository.delete(user);
+    }
+
 }
