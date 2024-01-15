@@ -5,11 +5,7 @@ public class Camera {
     public String name;
 
     public Camera() {
-        this("카메라");
-    }
-
-    protected  Camera(String name){
-        this.name = name;
+        this.name = "카메라";
     }
     
     public void takePicture(){

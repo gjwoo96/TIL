@@ -4,14 +4,8 @@ package chap_07.Camera;
 public class FactoryCam extends Camera{
 
     public FactoryCam() {
-        //부모클래스 생성자 접근
-        super("공장 카메라");
+        this.name = "공장 카메라";
     }
-    public void recordVideo(){
-        super.recordVideo();
-        detectFire();
-    }
-
     public void detectFire(){
         System.out.println("화재를 감지합니다.");
     }
