@@ -39,7 +39,7 @@ public class UserServiceV2 {
         // 정리하자면, 아래코드는 조회 쿼리를 실행해서 결과가 나오면 User객체에 반환, 없으면 예외처리를 발생한다.
         User user = userRepository.findById(request.getId())
                 .orElseThrow(IllegalArgumentException::new);
-
+        
         //Update 쿼리 부분
         user.updateName(request.getName());
         //userRepository.save(user);
