@@ -1,7 +1,7 @@
 # 스프링 & 스프링부트  & 에러 처리  내용정리
 
 
-## 1. git 커밋 도중 gradle 권한에러 발생  
+## 1. git 커밋 도중 gradle 권한에러 발생(24-01-30 추가)  
 * 원인
 > __gradle 권한 없음__
   
@@ -15,7 +15,7 @@ fatal: adding files failed
 
 
 
-
+- 해결방법
     
 > .gradle 디렉토리에 읽기 쓰기권한 부여 
 
@@ -29,6 +29,24 @@ chmod -R u+rw Spring/library-app/.gradle
 ```
 ./gradlew clean build -x test
 ```  
+
+- 추가 문제 발생  
+그 이후로 가끔 gradle로 빌드할때 권한 에러가 발생하여 추가적인 조치를 취하였다.  윈도우 환경에서 push 할 경우 기본권한이 644로 설정되어있는데 755로 변경해야 한다고 한다.
+
+- 해결방법
+1. git bash 접속 > gradlew이 있는 디렉토리로 이동 
+2. 권한 목록 조회
+```
+git ls-tree HEAD
+```  
+3. gradlew 권한 확인 후 644 > 755변경
+```
+git update-index --add --chmod=+x gradlew
+```  
+4. 재빌드
+```
+./gradlew clean build
+```
 
     
 

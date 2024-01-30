@@ -44,4 +44,9 @@ public class UserLoanHistory {
     public boolean isReturn() {
         return isReturn;
     }
+
+    public void doReturn(){
+        this.isReturn = true;
+    }
+
 }

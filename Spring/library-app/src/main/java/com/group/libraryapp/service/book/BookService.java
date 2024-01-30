@@ -3,7 +3,8 @@ package com.group.libraryapp.service.book;
 import com.group.libraryapp.domain.book.Book;
 import com.group.libraryapp.domain.book.UserLoanHistory;
 import com.group.libraryapp.domain.user.User;
-import com.group.libraryapp.domain.user.UserRepository;
+import com.group.libraryapp.dto.book.request.BookReturnRequest;
+import com.group.libraryapp.repository.user.UserRepository;
 import com.group.libraryapp.dto.book.request.BookCreateRequest;
 import com.group.libraryapp.dto.book.request.BookLoanRequest;
 import com.group.libraryapp.repository.book.BookRepository;
@@ -47,7 +48,21 @@ public class BookService {
                 .orElseThrow(IllegalArgumentException::new);
         //5. 유저 정보와 책 정보를 기반으로 UserLoanHistory를 저장
         userLoanHistoryRepository.save(new UserLoanHistory(user.getId(),book.getName()));
+    }
 
+    @Transactional
+    public void returnBook(BookReturnRequest request){
+        //1. 빌린사람 / 빌린책 이름을 받는다.
+        //2. user 테이블에서 이름으로 id 값이 존재하는지 확인
+        //3. id, 빌린 책 이름으로 hist 테이블 조회
+        //4. 있는경우 isreturn 1 > 없으면 에러
+        User user = userRepository.findByName(request.getUserName())
+                .orElseThrow(IllegalArgumentException::new);
+
+        UserLoanHistory userLoanHistory = userLoanHistoryRepository.findByUserIdAndBookName(user.getId(), request.getBookName())
+                .orElseThrow(IllegalArgumentException::new);
+        //
+        userLoanHistory.doReturn();
     }
 
 }
