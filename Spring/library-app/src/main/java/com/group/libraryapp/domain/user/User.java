@@ -1,6 +1,11 @@
 package com.group.libraryapp.domain.user;
 
+import com.group.libraryapp.domain.book.UserLoanHistory;
+
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity // 스프링이 User 객체와 user 테이블을 같은것을 바라본다.
 public class User {
     @Id //id 필드라는것 명시
@@ -9,6 +14,9 @@ public class User {
     @Column(nullable = false,length = 20) // name varchar(20)
     private String name;
     private Integer age;
+
+    @OneToMany(mappedBy = "user")
+    private List<UserLoanHistory> userLoanHistories = new ArrayList<>();
 
     //JPA를 사용하기위해선 기본생성자 필수!
     protected User(){}
