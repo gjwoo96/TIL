@@ -19,23 +19,18 @@ public class UserLoanHistory {
 
     private boolean isReturn;
 
+    protected UserLoanHistory(){
+
+    }
+
     public UserLoanHistory(User user, String bookName) {
         this.user = user;
         this.bookName = bookName;
         this.isReturn = false;
     }
 
-    protected UserLoanHistory(){
-
-    }
-
-
     public Long getId() {
         return id;
-    }
-
-    public long getUserId() {
-        return userId;
     }
 
     public String getBookName() {
