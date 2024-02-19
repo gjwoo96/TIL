@@ -34,7 +34,7 @@ public class UserLoanHistory {
     }
 
     public String getBookName() {
-        return bookName;
+        return this.bookName;
     }
 
     public boolean isReturn() {

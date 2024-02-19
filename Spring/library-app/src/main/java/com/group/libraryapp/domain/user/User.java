@@ -15,7 +15,7 @@ public class User {
     private String name;
     private Integer age;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user",cascade = CascadeType.ALL,orphanRemoval = true)
     private List<UserLoanHistory> userLoanHistories = new ArrayList<>();
 
     //JPA를 사용하기위해선 기본생성자 필수!
@@ -43,6 +43,19 @@ public class User {
 
     public void updateName(String name){
         this.name = name;
+    }
+
+    public void loanBook(String bookName){
+        this.userLoanHistories.add(new UserLoanHistory(this,bookName));
+    }
+
+    // User,UserLoanHistory 협업
+    public void returnBook(String bookName){
+        UserLoanHistory targetHistory = this.userLoanHistories.stream()
+                .filter(history -> history.getBookName().equals(bookName))
+                .findFirst()
+                .orElseThrow(IllegalArgumentException::new);
+        targetHistory.doReturn();
     }
 
 }
